@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 import psycopg2
 
@@ -6,6 +6,18 @@ DBNAME = 'news'
 
 
 def query(sql, db_conn, the_tail):
+    """
+    query function returns the results of an SQL query.
+
+    query function takes the following parameters.
+    args:
+    sql - an SQL query statement to be executed.
+    db_conn - a DB connection session.
+    the_tail - a string passed in for printing.
+
+    returns:
+    A list of tuples containing the results of the query.
+    """
     try:
         cursor = db_conn.cursor()
         cursor.execute(sql)
@@ -21,7 +33,6 @@ def query(sql, db_conn, the_tail):
         # closing database connection
         if (db_conn):
             cursor.close()
-            # print("PostgreSQL connection is closed")
 
 
 def main():
@@ -50,7 +61,6 @@ def main():
     print("""\nQuestion #3:
     On which days did more than 1% of requests lead to errors?""")
     with open('query3.sql', 'r') as file:
-        # sql3 = file.read().replace('\n', '')
         sql3 = file.read().strip()
         file.close()
     query(sql3, conn, " errors")

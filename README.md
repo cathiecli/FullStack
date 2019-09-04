@@ -12,23 +12,22 @@ The following files are included in the project:
 
 An alternative way for the 3rd query is using views.
 1. create view *not-found_vw* by
-`CREATE VIEW not_found_vw AS
+```CREATE VIEW not_found_vw AS
 SELECT DATE(time) the_date, status, COUNT(DATE(time)) ctn
   FROM log
  WHERE status LIKE '%404%'
  GROUP BY DATE(time), status
- ORDER BY ctn DESC;`
+ ORDER BY ctn DESC;```
 2. create view *full_vw* by
-` CREATE VIEW full_vw AS
+``` CREATE VIEW full_vw AS
  SELECT DATE(time) the_date, COUNT(DATE(time)) ctn
     FROM log
-   GROUP BY DATE(time);`
+   GROUP BY DATE(time);```
 3. Replace *query3.sql* content with the following query:
-`SELECT TO_CHAR(a.the_date, 'fmMonth DD,YYYY'), TO_CHAR(((a.ctn::decimal / b.ctn::decimal) * 100.0)::float, 'FM999999990.00') || '%'
+```SELECT TO_CHAR(a.the_date, 'fmMonth DD,YYYY'), TO_CHAR(((a.ctn::decimal / b.ctn::decimal) * 100.0)::float, 'FM999999990.00') || '%'
       FROM not_found_vw a, full_vw b
       WHERE a.the_date = b.the_date AND
-           ((a.ctn::decimal / b.ctn::decimal) * 1) > 0.01
-     LIMIT 10`
+           ((a.ctn::decimal / b.ctn::decimal) * 1) > 0.01```
 
 ***proj1_log_analysis_output.txt***
 ***README.md***
