@@ -35,8 +35,8 @@ def main():
     sql2 = """SELECT a.name, COUNT(b.title) num
               FROM authors a, articles b, log c
               WHERE a.id = b.author AND
-              b.slug = substr(c.path, 10, length(c.path))
-              GROUP BY b.title, a.name
+              b.slug = substr(c.path, 10)
+              GROUP BY a.name
               ORDER BY num desc"""
 
     print("""\nQuestion #1:

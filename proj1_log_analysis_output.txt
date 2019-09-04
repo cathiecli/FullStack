@@ -9,14 +9,10 @@ Bad things gone, say good people - 170098 views
 
 Question #2:
     Who are the most popular article authors of all time?
-Rudolf von Treppenwitz - 338647 views
-Ursula La Multa - 253801 views
+Ursula La Multa - 507594 views
+Rudolf von Treppenwitz - 423457 views
 Anonymous Contributor - 170098 views
-Ursula La Multa - 84906 views
-Rudolf von Treppenwitz - 84810 views
 Markoff Chaney - 84557 views
-Ursula La Multa - 84504 views
-Ursula La Multa - 84383 views
 
 Question #3:
     On which days did more than 1% of requests lead to errors?
